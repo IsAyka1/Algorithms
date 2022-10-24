@@ -1,8 +1,8 @@
 import dataclasses
-
 import pytest
 
-from main import find_str
+from algorithm_KMP import is_found_str
+
 
 @dataclasses.dataclass
 class Case:
@@ -11,7 +11,7 @@ class Case:
     expected: bool
 
 
-TEST_CASES = [
+TEST_KMP = [
     Case(
         text='',
         s='',
@@ -80,6 +80,6 @@ TEST_CASES = [
 ]
 
 
-@pytest.mark.parametrize('t', TEST_CASES)
-def test_find_str(t: Case) -> None:
-    assert find_str(t.text, t.s) == t.expected
+@pytest.mark.parametrize('t', TEST_KMP)
+def test_algorithm_KMP(t: Case) -> None:
+    assert is_found_str(t.text, t.s) == t.expected
